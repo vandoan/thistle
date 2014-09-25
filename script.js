@@ -1,32 +1,26 @@
 
+	// http://jonraasch.com/blog/a-simple-jquery-slideshow
+	// requires jquery
+
 function slideSwitch() {
-    var $active = $('#slideshow IMG.active');
+	var $active = $('#slideshow IMG.active'); 	// attach the id to the variable
+	if ( $active.length == 0) $active = $('#slideshow IMG:last');	// if it's the first one, than it's last in line
 
-    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+	var $next = $active.next().length ? $active.next() 				// attach the action to the variable
+		: $('#slideshow IMG:first');
 
-    // use this to pull the images in the order they appear in the markup
-    var $next =  $active.next().length ? $active.next()
-        : $('#slideshow IMG:first');
-
-    // uncomment the 3 lines below to pull the images in random order
-    
-    // var $sibs  = $active.siblings();
-    // var rndNum = Math.floor(Math.random() * $sibs.length );
-    // var $next  = $( $sibs[ rndNum ] );
-
-
-    $active.addClass('last-active');
-
-    $next.css({opacity: 0.0})
-        .addClass('active')
-        .animate({opacity: 1.0}, 1000, function() {
-            $active.removeClass('active last-active');
-        });
+	$active.addClass('last-active'); 			// active img gets last active and a z of 9
+	$next.css({opacity: 0.0})					// the next img starts off invisible
+		.addClass('active')						// gets the z of 10 and is now on top
+		.animate({opacity: 1.0}, 5000, function() {   // fades in, 5 sec, 
+			$active.removeClass('active last-active'); 	// clears the initial img of its classes
+		});
 }
 
 $(function() {
-    setInterval( "slideSwitch()", 5000 );
+    setInterval( "slideSwitch()", 7000 );
 });
+
 
 
 
