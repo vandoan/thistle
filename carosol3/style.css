@@ -1,0 +1,44 @@
+#gallery { 
+	margin-bottom: 20px;
+	width: 100%;
+	overflow: hidden;
+	}
+
+#gallery li {
+	float: left; 
+	margin: 0 3px 3px 0;
+	width: 274px; 
+	height: 191px; 
+	position: relative;  /* required for positioning of span */
+	color: #000; 
+	list-style:none;
+	
+}
+
+#gallery li img {
+	width:100%; 
+	padding: 6px; 
+	background: #ececec; 
+	border: 1px solid #ccc; }
+
+#gallery li h3 { 
+font: bold 11px Helvetica, Arial, sans-serif; 
+padding: 0; 
+margin: 0; 
+}
+
+#gallery li span {
+	display: none;  /* hides the caption */ 
+	font-size: 15px; 
+	position: absolute; /* overlay images */ 
+	bottom: 18px; 
+	left: 5px; 
+	padding: 5px; 
+	background: url(bg_white_trans.png) repeat ; 
+	width: 100%; /* since there's absolute positioning, need to set the width */ 
+	line-height: 1.3em; 
+}
+
+
+
+

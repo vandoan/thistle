@@ -1,7 +1,7 @@
 
 
 // http://www.designchemical.com/blog/index.php/jquery/jquery-image-swap-gallery/
-
+// http://www.designchemical.com/blog/index.php/jquery/create-image-preloader-image-swap-function-jquery/
 
 $(document).ready(function() {
 	// image swap on hover
@@ -15,15 +15,20 @@ $(document).ready(function() {
 
 	// image preload 
 	var imgSwap =[]; 
+		// the container
+
 		$("#gallery li img").each(function(){
-			// for each thumb
+			// get all the images, a loop
 			imgUrl = this.src.replace('thumb/', '');
-				// take away the thumb 
+				// with the code, remove the thumb/  
 			imgSwap.push(imgUrl); 
-				// and put it in the box
+				// and add it in the box
+
 		}); 
 		$(imgSwap).preload(); 
+			// prepare it
 	}); 
+
 $.fn.preload = function(){
 	this.each(function(){
 		$('<img/>')[0].src = this;
